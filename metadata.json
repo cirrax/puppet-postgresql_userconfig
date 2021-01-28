@@ -1,6 +1,6 @@
 {
   "name": "cirrax-postgresql_userconfig",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Cirrax GmbH",
   "summary": "generate user specific configuration for postgres (eg. ~/.pgpass) ",
   "license": "GPL-3.0",
