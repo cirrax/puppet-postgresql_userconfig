@@ -4,9 +4,9 @@
   "author": "Cirrax GmbH",
   "summary": "generate user specific configuration for postgres (eg. ~/.pgpass) ",
   "license": "GPL-3.0",
-  "source": "https://github.com/cirrax/cirrax-postgresql_userconfig",
-  "project_page": "https://github.com/cirrax/cirrax-postgresql_userconfig",
-  "issues_url": "https://github.com/cirrax/cirrax-postgresql_userconfig/issues",
+  "source": "https://github.com/cirrax/puppet-postgresql_userconfig",
+  "project_page": "https://github.com/cirrax/puppet-postgresql_userconfig",
+  "issues_url": "https://github.com/cirrax/puppet-postgresql_userconfig/issues",
   "tags": [
     "postgresql",
     "userconfig",
