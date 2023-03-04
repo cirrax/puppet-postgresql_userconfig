@@ -7,14 +7,6 @@
   "source": "https://github.com/cirrax/puppet-postgresql_userconfig",
   "project_page": "https://github.com/cirrax/puppet-postgresql_userconfig",
   "issues_url": "https://github.com/cirrax/puppet-postgresql_userconfig/issues",
-  "tags": [
-    "postgresql",
-    "userconfig",
-    "pgpass",
-    "user",
-    "home",
-    "psql"
-  ],
   "dependencies": [
     {
       "name": "puppetlabs/concat",
@@ -70,7 +62,15 @@
       "version_requirement": ">= 4.10.0 < 8.0.0"
     }
   ],
-  "pdk-version": "1.18.1",
-  "template-url": "pdk-default#1.18.1",
-  "template-ref": "tags/1.18.1-0-g3d2e75c"
+  "tags": [
+    "postgresql",
+    "userconfig",
+    "pgpass",
+    "user",
+    "home",
+    "psql"
+  ],
+  "pdk-version": "2.6.1",
+  "template-url": "pdk-default#2.7.1",
+  "template-ref": "tags/2.7.1-0-g9a16c87"
 }
