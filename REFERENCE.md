@@ -10,12 +10,12 @@
 
 ### Defined types
 
-* [`postgresql_userconfig::passfile`](#postgresql_userconfigpassfile): initialize a passfile
-* [`postgresql_userconfig::passfile_entry`](#postgresql_userconfigpassfile_entry): add an entry (line) in one ore more pgpass files
+* [`postgresql_userconfig::passfile`](#postgresql_userconfig--passfile): initialize a passfile
+* [`postgresql_userconfig::passfile_entry`](#postgresql_userconfig--passfile_entry): add an entry (line) in one ore more pgpass files
 
 ## Classes
 
-### `postgresql_userconfig`
+### <a name="postgresql_userconfig"></a>`postgresql_userconfig`
 
 main class to generate postgres passfiles
 
@@ -29,9 +29,14 @@ include postgresql_passfile
 
 #### Parameters
 
-The following parameters are available in the `postgresql_userconfig` class.
+The following parameters are available in the `postgresql_userconfig` class:
 
-##### `passfiles`
+* [`passfiles`](#-postgresql_userconfig--passfiles)
+* [`passfiles_defaults`](#-postgresql_userconfig--passfiles_defaults)
+* [`passfile_entries`](#-postgresql_userconfig--passfile_entries)
+* [`passfile_entries_defaults`](#-postgresql_userconfig--passfile_entries_defaults)
+
+##### <a name="-postgresql_userconfig--passfiles"></a>`passfiles`
 
 Data type: `Hash`
 
@@ -41,7 +46,7 @@ in hiera this parameter is hash merged
 
 Default value: `{}`
 
-##### `passfiles_defaults`
+##### <a name="-postgresql_userconfig--passfiles_defaults"></a>`passfiles_defaults`
 
 Data type: `Hash`
 
@@ -49,7 +54,7 @@ use this if you want any defaults changed for the files.
 
 Default value: `{}`
 
-##### `passfile_entries`
+##### <a name="-postgresql_userconfig--passfile_entries"></a>`passfile_entries`
 
 Data type: `Hash`
 
@@ -59,7 +64,7 @@ in hiera this parameter is hash merged
 
 Default value: `{}`
 
-##### `passfile_entries_defaults`
+##### <a name="-postgresql_userconfig--passfile_entries_defaults"></a>`passfile_entries_defaults`
 
 Data type: `Hash`
 
@@ -69,7 +74,7 @@ Default value: `{}`
 
 ## Defined types
 
-### `postgresql_userconfig::passfile`
+### <a name="postgresql_userconfig--passfile"></a>`postgresql_userconfig::passfile`
 
 initialize a passfile
 
@@ -83,17 +88,15 @@ postgresql_userconfig::passfile { 'namevar': }
 
 #### Parameters
 
-The following parameters are available in the `postgresql_userconfig::passfile` defined type.
+The following parameters are available in the `postgresql_userconfig::passfile` defined type:
 
-##### `filename`
+* [`filepath`](#-postgresql_userconfig--passfile--filepath)
+* [`filename`](#-postgresql_userconfig--passfile--filename)
+* [`owner`](#-postgresql_userconfig--passfile--owner)
+* [`group`](#-postgresql_userconfig--passfile--group)
+* [`mode`](#-postgresql_userconfig--passfile--mode)
 
-Data type: `String`
-
-filename to write
-
-Default value: `'.pgpass'`
-
-##### `filepath`
+##### <a name="-postgresql_userconfig--passfile--filepath"></a>`filepath`
 
 Data type: `String`
 
@@ -102,7 +105,15 @@ normaly the homedirectory of the user.
 but puppet cannot (yet ?) detect your'e home,
 so we make this a parameter
 
-##### `owner`
+##### <a name="-postgresql_userconfig--passfile--filename"></a>`filename`
+
+Data type: `String`
+
+filename to write
+
+Default value: `'.pgpass'`
+
+##### <a name="-postgresql_userconfig--passfile--owner"></a>`owner`
 
 Data type: `String`
 
@@ -110,15 +121,15 @@ owner of the file (defaults to the title)
 
 Default value: `$title`
 
-##### `group`
+##### <a name="-postgresql_userconfig--passfile--group"></a>`group`
 
 Data type: `Optional[String]`
 
 group of the file.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `mode`
+##### <a name="-postgresql_userconfig--passfile--mode"></a>`mode`
 
 Data type: `String`
 
@@ -126,13 +137,7 @@ the mode of the file
 
 Default value: `'0600'`
 
-##### `filename`
-
-the path and name of the file to create.
-
-Default value: `'.pgpass'`
-
-### `postgresql_userconfig::passfile_entry`
+### <a name="postgresql_userconfig--passfile_entry"></a>`postgresql_userconfig::passfile_entry`
 
 lets you define a line entry in the pgpass file
 for simplification, you can define multiple targets.
@@ -147,9 +152,18 @@ postgresql_userconfig::passfile_entry { 'namevar': }
 
 #### Parameters
 
-The following parameters are available in the `postgresql_userconfig::passfile_entry` defined type.
+The following parameters are available in the `postgresql_userconfig::passfile_entry` defined type:
 
-##### `targets`
+* [`targets`](#-postgresql_userconfig--passfile_entry--targets)
+* [`comment`](#-postgresql_userconfig--passfile_entry--comment)
+* [`hostname`](#-postgresql_userconfig--passfile_entry--hostname)
+* [`port`](#-postgresql_userconfig--passfile_entry--port)
+* [`database`](#-postgresql_userconfig--passfile_entry--database)
+* [`username`](#-postgresql_userconfig--passfile_entry--username)
+* [`password`](#-postgresql_userconfig--passfile_entry--password)
+* [`order`](#-postgresql_userconfig--passfile_entry--order)
+
+##### <a name="-postgresql_userconfig--passfile_entry--targets"></a>`targets`
 
 Data type: `Variant[String, Array]`
 
@@ -159,15 +173,15 @@ pgpass files.
 
 Default value: `[]`
 
-##### `comment`
+##### <a name="-postgresql_userconfig--passfile_entry--comment"></a>`comment`
 
 Data type: `Optional[String]`
 
 a simple comment to add to the file prior to the entry
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `hostname`
+##### <a name="-postgresql_userconfig--passfile_entry--hostname"></a>`hostname`
 
 Data type: `String`
 
@@ -175,7 +189,7 @@ the hostname entry
 
 Default value: `'*'`
 
-##### `port`
+##### <a name="-postgresql_userconfig--passfile_entry--port"></a>`port`
 
 Data type: `String`
 
@@ -183,7 +197,7 @@ the port entry
 
 Default value: `'5432'`
 
-##### `database`
+##### <a name="-postgresql_userconfig--passfile_entry--database"></a>`database`
 
 Data type: `String`
 
@@ -191,7 +205,7 @@ the database entry
 
 Default value: `$title`
 
-##### `username`
+##### <a name="-postgresql_userconfig--passfile_entry--username"></a>`username`
 
 Data type: `String`
 
@@ -199,15 +213,15 @@ the username entry
 
 Default value: `'*'`
 
-##### `password`
+##### <a name="-postgresql_userconfig--passfile_entry--password"></a>`password`
 
 Data type: `Optional[String]`
 
 the password entry
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `order`
+##### <a name="-postgresql_userconfig--passfile_entry--order"></a>`order`
 
 Data type: `String`
 
