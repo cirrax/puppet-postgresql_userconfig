@@ -23,5 +23,4 @@ class postgresql_userconfig (
 ) {
   create_resources(postgresql_userconfig::passfile, $passfiles, $passfiles_defaults)
   create_resources(postgresql_userconfig::passfile_entry, $passfile_entries, $passfile_entries_defaults)
-
 }

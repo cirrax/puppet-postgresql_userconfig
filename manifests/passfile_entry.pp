@@ -35,15 +35,14 @@ define postgresql_userconfig::passfile_entry (
   Optional[String]       $password = undef,
   String                 $order    = '100',
 ) {
-
   if $targets =~ Array {
     $_targets = $targets
   } else {
-    $_targets = [ $targets ]
+    $_targets = [$targets]
   }
 
   $_targets.each | String $target | {
-    concat::fragment{ "${title} ${target}":
+    concat::fragment { "${title} ${target}":
       target  => $target,
       content => template('postgresql_userconfig/passfile_entry.erb'),
       order   => $order,
